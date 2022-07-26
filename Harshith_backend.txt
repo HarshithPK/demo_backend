@@ -1,0 +1,169 @@
+APIs
+
+
+POST-APIs
+	
+	- For the work initiator to fill the form. --> 4 APIs
+	- For the maintenance dept to fill the 5th part --> 1 API
+	- For approval --> 1 API
+
+GET-APIs
+	
+	- To view the entire form 
+
+
+
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+{
+	
+	general : {
+
+		type_of_work_permit : [ { type : string, required : true } ],
+
+		work_planned : {
+			date : {type : string, required : true},
+			time : {type : string, required : true}
+
+		}
+
+		work_issuer : {
+			issuer_name : {type : string, required : true} 
+			issuer_dept : {type : string, required : true}
+			work_supervisor_name : {type : string, required : true} 
+			contact_number : {type : string, required : true}
+		}
+
+		area_of_work : {type : string, required : true},
+
+		equipment_used : {type : string, required : true},
+
+		method_of_statement : <!-- holde --> ,
+
+		receiver-contractor_details : {
+			organization_name : {type : string, required : true},
+			no_of_workders : {type : string, required : true},
+			supervisor_name : {type : string, required : true},
+			contact_number : {type : string, required : true}
+		}
+	},
+	
+	hazard_identified : [ {type : string, required : true} ],
+
+	PPEs_to_be_used : [ {type : string, required : true} ],
+
+	precautions_checklist : {
+		general_work : [ {type : string, required : true} ],
+		hot_work : [ {type : string, required : true} ],
+		height_roof : [ {type : string, required : true} ],
+		confined_space : [ {type : string, required : true} ]
+	},
+	
+	isolation : {
+	
+		electrical_including_motor_isolation : {
+			status : {type : string, required : true}, 
+			drive_involved : {type : string, required : true},
+		
+			how_isolated : <!-- hold -->,
+
+			certified_by : {
+				name : {type : string, required : true},
+				date : {type : Date, required : true},
+				time : <!-- hold -->
+			}
+		},
+
+	
+		utility_isolation : {
+			status : {type : string, required : true}, 
+			service_involved : {type : string, required : true},
+
+			how_isolated : <!-- hold -->,
+
+			certified_by : {
+				name : {type : string, required : true},
+				date : {type : Date, required : true},
+				time : <!-- hold -->
+		}
+			
+	},
+
+
+	specific_control_measure : {type : string, required : true},
+
+	approval : {
+		
+		work_initiator : {
+			name : {type : string }
+			date : {type : string }
+			time : <!-- hold -->,
+			isApproved : {type : string,  default : "no"}
+		},
+		work_receiver : {
+			name : {type : string}
+			date : {type : string}
+			time : <!-- hold -->,
+			isApproved : {type : string, default : "no"}
+		},
+		authorization_of_area_inChange : {
+			name : {type : string}
+			date : {type : string}
+			time : <!-- hold -->,
+		
+			permite_extended_till : {type : string, default : null},
+			permited_for : {type : string, default : null},
+
+			isApproved : {type : string, required : true, default : "no"}
+		},
+		divisional_head : {
+			name : {type : string, }
+			date : {type : string, }
+			time : <!-- hold -->,
+
+			remarks : {type : string, default : null },
+
+			isApproved : {type : string, required : true, default : "no"}
+		},
+		factory_manager : {
+			name : {type : string, }
+			date : {type : string, }
+			time : <!-- hold -->,
+
+			remarks : {type : string, default : null },		
+	
+			isApproved : {type : string, required : true, default : "no"}
+		},
+		safety_officer : {
+			name : {type : string, }
+			date : {type : string, }
+			time : <!-- hold -->,
+
+			{type : string, default : null },
+
+			isApproved : {type : string, required : true, default : "no"}
+		},
+		security_personal : {
+			name : {type : string, }
+			date : {type : string,}
+			time : <!-- hold -->,
+			isApproved : {type : string, required : true, default : "no"}
+		},
+		authorization_of_maintenance : {
+			name : {type : string, }
+			date : {type : string, }
+			time : <!-- hold -->,
+			isApproved : {type : string, required : true, default : "no"}
+		},
+		
+
+}
+
